@@ -1,0 +1,8 @@
+**/bin
+**/obj
+**/out
+**/.vscode
+**/.vs
+.mono
+.dotnet
+.Microsoft.DotNet.ImageBuilder
