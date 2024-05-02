@@ -15,7 +15,7 @@ public class Passagem : BaseEntity
     [ForeignKey(nameof(Pedagio))]
     public Guid PedagioId { get; set; }
 
-    public int Contador { get; set; } = 0;
+    public int Contador { get; set; } = 1;
 
     public int MesAtual { get; set; } = DateTime.Now.Month;
 
