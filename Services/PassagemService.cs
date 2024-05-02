@@ -86,6 +86,7 @@ public class PassagemService(
       passagem = await CreatePassagem(dto);
       outputDTO = new()
       {
+        PassagemId = passagem.Id,
         CondutorId = dto.CondutorId,
         PedagioId = dto.PedagioId,
         Preco = pedagio.Preco,
@@ -98,6 +99,7 @@ public class PassagemService(
       int priceWithDiscount = HandleDiscount(pedagio, passagem);
       outputDTO = new()
       {
+        PassagemId = passagem.Id,
         CondutorId = dto.CondutorId,
         PedagioId = dto.PedagioId,
         Preco = priceWithDiscount,

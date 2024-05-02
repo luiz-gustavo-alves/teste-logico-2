@@ -18,6 +18,9 @@ public class AtualizarPassagemDTO
 public class OutputAtualizarPassagemDTO
 {
   [DataMember(Name = "condutorId")]
+  public required Guid PassagemId { get; set; }
+
+  [DataMember(Name = "condutorId")]
   public required Guid CondutorId { get; set; }
 
   [DataMember(Name = "pedagioId")]
