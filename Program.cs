@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
 using testeLogicoBTI.Data;
+using testeLogicoBTI.Middlewares;
+using testeLogicoBTI.Repositories;
+using testeLogicoBTI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +27,16 @@ builder.Services.AddDbContext<AppDBContext>(opts =>
     opts.UseNpgsql(connectionString);
 });
 
+// Services
+builder.Services.AddScoped<CondutorService>();
+builder.Services.AddScoped<PassagemService>();
+builder.Services.AddScoped<PedagioService>();
+
+// Repositories
+builder.Services.AddScoped<CondutorRepository>();
+builder.Services.AddScoped<PassagemRepository>();
+builder.Services.AddScoped<PedagioRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +47,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Middlewares
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 
